@@ -1,3 +1,7 @@
+/*
+* Async function to fetch data from the api
+* Does some error handling
+* */
 async function fetchData(apiURL){
   try {
     const data = await fetch(apiURL)

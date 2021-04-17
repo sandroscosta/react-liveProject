@@ -1,27 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Select = ({options}) => {
+const Select = ({options, selectChange}) => {
+  /*
+  * Defines the Select element.
+  * Uses a map to go through all options and list them
+  * onChange handler in defined in the parent component
+  */
   return (
-    <select>
-      { options.map((label, value) =>
-        <option key={value}>{label}</option>
+    <select onChange={selectChange}>
+      {options.map((label) =>
+        <option key={label} value={label}>{label}</option>
       )}
     </select>
   )
 }
 
 Select.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.object).isRequired
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 Select.defaultProps = {
-  options: [
-    {
-      label: 'Choose a value',
-      value: ''
-    }
-  ]
+  options: ['Choose an option']
 }
 
 export default Select
